@@ -1,13 +1,11 @@
 import HeartIcon from "./HeartIcon";
-function Card({ productTitle, price, description }) {
+import Image from "next/image";
+
+function Card({ productTitle, thumbnail, price }) {
   return (
     <div className=" bg-slate-100 relative shadow-md flex flex-col gap-4 w-64 rounded-md cursor-pointer pb-4 hover:scale-105 transition-transform duration-300 ease-in-out">
       <HeartIcon />
-      <img
-        className="self-stretch object-cover object-top h-72  overflow-hidden rounded-md"
-        src="https://img01.ztat.net/article/spp-media-p1/90a9a85b14a0305c9ea5b3b58fb1f188/faafa3045dad486caa5472add232e0d1.jpg?imwidth=1800"
-        alt="mand"
-      />
+      <Image src={thumbnail} width={250} height={250} alt="test" />
       <div className="pl-4">
         <h1>{productTitle}</h1>
         <h2>{price} kr</h2>
