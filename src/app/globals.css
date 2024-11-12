@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Poppins-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Noto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/NotoSans-VariableFont_wdth,wght.woff") format("woff");
+}
 :root {
   --background: #ffffff;
   --foreground: #171817;

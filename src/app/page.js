@@ -4,5 +4,10 @@ import MainButton from "@/components/MainButton";
 import Image from "next/image";
 
 export default function Home() {
-  return <div>hej</div>;
+  return (
+    <div>
+      <h1 className="font-poppins font-extrabold">hej</h1>
+      <h2 className="font-noto">test not</h2>
+    </div>
+  );
 }
