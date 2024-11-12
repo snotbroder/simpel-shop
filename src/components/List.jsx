@@ -1,18 +1,16 @@
 import Card from "./Card";
 
-function List() {
+export default async function List() {
+  let response = await fetch("https://dummyjson.com/products");
+  let data = await response.json();
+
   return (
-    <div className="flex flex-wrap gap-20 pl-28 pr-28 items-center justify-center">
-      <Card productTitle="Sort Jakke" price="200" />
-      <Card productTitle="Blå Jakke" price="300" />
-      <Card productTitle="Rød Jakke" price="400 kr." />
-      <Card productTitle="Gul Jakke" price="500 kr." />
-      <Card productTitle="Sort Jakke" price="200 kr." />
-      <Card productTitle="Blå Jakke" price="300" />
-      <Card productTitle="Rød Jakke" price="400" />
-      <Card productTitle="Gul Jakke" price="500" />
-    </div>
+    <ul className="flex flex-wrap gap-20 pl-28 pr-28 items-center justify-center">
+      {data.products.map((product) => (
+        <div key={product.id}>
+          <Card productTitle={product.title} price={product.price}></Card>
+        </div>
+      ))}
+    </ul>
   );
 }
-
-export default List;
