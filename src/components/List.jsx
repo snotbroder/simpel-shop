@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import Card from "./Card";
 
-export default function List({ category, fetcher }) {
+export default function List({ category, fetcher, setBasketArray }) {
   const { data, error, isLoading } = useSWR(
     `https://dummyjson.com/products${category}`,
     fetcher
@@ -19,6 +19,7 @@ export default function List({ category, fetcher }) {
             price={product.price}
             thumbnail={product.thumbnail}
             productId={product.id}
+            setBasketArray={setBasketArray}
           />
         </div>
       ))}

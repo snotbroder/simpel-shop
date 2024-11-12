@@ -2,7 +2,7 @@ import Link from "next/link";
 import HeartIcon from "./HeartIcon";
 import Image from "next/image";
 
-function Card({ productTitle, thumbnail, price, productId }) {
+function Card({ productTitle, thumbnail, price, productId, setBasketArray }) {
   return (
     <div className=" bg-slate-100 relative shadow-md flex flex-col gap-4 w-64 rounded-md cursor-pointer pb-4 hover:scale-105 transition-transform duration-300 ease-in-out">
       <HeartIcon />
@@ -11,7 +11,21 @@ function Card({ productTitle, thumbnail, price, productId }) {
         <h1>{productTitle}</h1>
         <h2>{price} kr</h2>
       </div>
-      <button className=" self-start ml-4 rounded-lg bg-actionColor pl-3 pr-3 text-slate-800 border border-slate-800 hover:bg-lime-100 hover:font-medium">
+      <button
+        className=" self-start ml-4 rounded-lg bg-actionColor pl-3 pr-3 text-slate-800 border border-slate-800 hover:bg-lime-100 hover:font-medium"
+        onClick={() => {
+          // e.preventDefault();
+          setBasketArray((prevBasketArray) => [
+            ...prevBasketArray,
+            {
+              title: productTitle,
+              id: productId,
+              price: price,
+              thumbnail: thumbnail,
+            },
+          ]);
+        }}
+      >
         Læg i Kurv
       </button>
       {/* <span className=" w-full text-center border border-gray hover:border-black hover:bg-actionColor cursor-pointer rounded-sm">
