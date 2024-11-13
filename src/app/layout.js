@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header.jsx";
 
 const poppinsRegular = localFont({
@@ -17,8 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppinsRegular.variable}  antialiased`}>
-        <Header />
-        {children}
+        <main>
+          <Header />
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
