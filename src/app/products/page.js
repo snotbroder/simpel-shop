@@ -13,15 +13,21 @@ function productList() {
   return (
     <>
       <Filter fetcher={fetcher} setCategory={setCategory} />
-      <List
-        fetcher={fetcher}
-        category={category}
-        setBasketArray={setBasketArray}
-        basketArray={basketArray}
-      />
-      {basketArray.length > 0 && (
-        <Basket basketArray={basketArray} setBasketArray={setBasketArray} />
-      )}
+      <div className="flex">
+        <List
+          fetcher={fetcher}
+          category={category}
+          setBasketArray={setBasketArray}
+          basketArray={basketArray}
+        />
+        {basketArray.length > 0 && (
+          <Basket
+            className=" self-start"
+            basketArray={basketArray}
+            setBasketArray={setBasketArray}
+          />
+        )}
+      </div>
     </>
   );
 }

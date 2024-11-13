@@ -11,7 +11,7 @@ export default function List({ category, fetcher, setBasketArray }) {
   if (isLoading) return "Loading...";
 
   return (
-    <ul className="flex flex-wrap gap-20 pl-28 pr-28 items-center justify-center">
+    <ul className="flex flex-wrap gap-20 max-w-6xl items-center justify-center">
       {data.products.map((product) => (
         <div key={product.id}>
           <Card
