@@ -1,22 +1,33 @@
 "use client";
 import { useState } from "react";
 
-export default function Accordion({ reviews, rating, dimensions, returnInfo, shippingInfo }) {
+export default function Accordion({ reviews, rating, dimensions, returnInfo, shippingInfo, sku }) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="bg-slate-200 flex flex-col gap-4">
-      <Panel title="Reviews" isActive={activeIndex === 0} onShow={() => setActiveIndex(0)}>
-        <span>
-          rating: {rating} ({reviews.length})
-        </span>
+    <section className=" flex flex-col gap-4">
+      <Panel
+        title={
+          <>
+            Reviews{" "}
+            <span className="font-thin">
+              {rating} / 5 (<span className="underline">{reviews.length}</span>)
+            </span>
+          </>
+        }
+        isActive={activeIndex === 0}
+        onShow={() => setActiveIndex(0)}
+      >
+        {/* <span className="text-gray">
+          Product rating: {rating} / 5 ({reviews.length})
+        </span> */}
         {reviews && reviews.length && rating > 0 ? (
           reviews.map((review, index) => (
             <div key={index} className="font-noto mb-2">
-              <div>
-                <span className="font-thin">
+              <div className="mb-4">
+                <span className="font-regular mb-1">
                   {review.reviewerName} ⏐ {review.rating} / 5
                 </span>{" "}
-                <p>{review.comment}</p>
+                <p className="text-gray italic">"{review.comment}"</p>
               </div>
             </div>
           ))
@@ -56,7 +67,8 @@ export default function Accordion({ reviews, rating, dimensions, returnInfo, shi
         )}
       </Panel>
       <Panel title="Other" isActive={activeIndex === 3} onShow={() => setActiveIndex(3)}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, odit.
+        <p>Sku number: {sku}</p>
+        <p>Other tags</p>
       </Panel>
     </section>
   );

@@ -1,9 +1,14 @@
+// "use client";
 import Accordion from "@/components/Accordion";
 import Image from "next/image";
+import useSWR from "swr";
 async function singleProduct({ params }) {
   const id = (await params).id;
   let response = await fetch(`https://dummyjson.com/products/${id}`);
   let data = await response.json();
+  // export default function singleProduct({ params, fetcher, id }) {
+  //   const { data, error, isLoading } = useSWR(`https://dummyjson.com/products/${id}`, fetcher);
+  //   if (isLoading) return "Loading . . .";
   return (
     <section>
       <div>Back ⏐ breadcumb / breadcrumb / breadcrumb</div>
@@ -19,7 +24,9 @@ async function singleProduct({ params }) {
         <article>
           <div className="flex flex-col gap-10 mb-10">
             <div>
-              <h4 className="font-poppins capitalize text-xl text-gray mb-2">{data.category}</h4>
+              <h4 className="font-poppins capitalize text-xl  mb-2">
+                <span className="text-gray">{data.category}</span> ⏐ {data.brand}
+              </h4>
               <h1 className="font-poppins text-5xl font-black">{data.title}</h1>
             </div>
             <p className="font-noto">{data.description}</p>
@@ -31,7 +38,7 @@ async function singleProduct({ params }) {
           <span className="grid font-bold place-self-end hover:text-red-500">ADD TO CART</span>
         </article>
         <article>
-          <Accordion reviews={data.reviews} rating={data.rating} dimensions={data.dimensions} returnInfo={data.warrantyInformation} shippingInfo={data.shippingInformation}></Accordion>
+          <Accordion reviews={data.reviews} rating={data.rating} dimensions={data.dimensions} returnInfo={data.warrantyInformation} shippingInfo={data.shippingInformation} sku={data.sku}></Accordion>
         </article>
       </section>
     </section>
