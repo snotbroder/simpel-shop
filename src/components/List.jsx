@@ -10,6 +10,7 @@ export default async function List() {
         <div key={product.id}>
           <Card
             productTitle={product.title}
+            brand={product.brand}
             price={product.price}
             thumbnail={product.thumbnail}
           ></Card>
