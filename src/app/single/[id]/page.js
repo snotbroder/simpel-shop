@@ -14,7 +14,7 @@ async function singleProduct({ params }) {
       <div>Back ⏐ breadcumb / breadcrumb / breadcrumb</div>
       <section className="grid md:grid-cols-2 lg:grid-cols-3">
         <article className="mx-auto">
-          <Image src={data.thumbnail} width={350} height={350} alt={data.category} />
+          <Image src={data.images[0]} width={350} height={350} alt={data.category} />
           <div className="flex justify-between ">
             <Image className="border-solid border-2 border-gray" src={data.thumbnail} width={100} height={100} alt={data.category} />
             <Image className="border-solid border-2 border-gray" src={data.thumbnail} width={100} height={100} alt={data.category} />
