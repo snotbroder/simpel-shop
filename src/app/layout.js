@@ -18,10 +18,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppinsRegular.variable}  antialiased`}>
-        <main>
-          <Header />
-          {children}
-        </main>
+        <Header />
+        <main className="mx-4 md: lg:mx-20">{children}</main>
         <Footer />
       </body>
     </html>

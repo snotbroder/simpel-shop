@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function PaymentMethod({}) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="mb-64">
+    <section className="">
       <h3 className="font-poppins text-sm mb-3">Please choose payment method</h3>
       <div className="flex gap-4 justify-between lg:flex-nowrap mb-5">
         <Panel title="Card" isActive={activeIndex === 0} onShow={() => setActiveIndex(0)}>

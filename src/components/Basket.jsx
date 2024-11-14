@@ -4,22 +4,13 @@ import { FaTrashAlt } from "react-icons/fa";
 function Basket({ basketArray, setBasketArray }) {
   console.log("Basket Array:", basketArray);
   return (
-    <div className="basket-container bg-gray-100 text-black w-80 p-4 rounded-lg shadow-lg">
+    <div className="basket-container bg-gray-100 text-black w-64 p-4 rounded-lg shadow-lg">
       <h1 className="text-xl font-bold mb-4">Basket</h1>
       {basketArray.map((product, i) => (
-        <div
-          key={`basket${i}`}
-          className="basket-item border-b border-gray-300 pb-4 mb-4"
-        >
+        <div key={`basket${i}`} className="basket-item border-b border-gray-300 pb-4 mb-4">
           <div className="flex gap-4 items-center">
             {/* Product Image */}
-            <Image
-              src={product.thumbnail}
-              width={60}
-              height={60}
-              alt={product.title}
-              className="rounded-md"
-            />
+            <Image src={product.thumbnail} width={60} height={60} alt={product.title} className="rounded-md" />
             {/* Product Details */}
             <div className="flex flex-1 flex-col">
               <h1 className="font-medium text-sm">{product.title}</h1>
@@ -30,9 +21,7 @@ function Basket({ basketArray, setBasketArray }) {
             </div>
             <FaTrashAlt
               onClick={() => {
-                setBasketArray((prevBasketArray) =>
-                  prevBasketArray.filter((item) => item.id !== product.id)
-                );
+                setBasketArray((prevBasketArray) => prevBasketArray.filter((item) => item.id !== product.id));
               }}
               className="text-gray-500 hover:text-black cursor-pointer"
             />

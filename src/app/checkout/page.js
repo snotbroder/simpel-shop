@@ -3,7 +3,7 @@ import PaymentMethod from "@/components/PaymentMethod";
 function checkout() {
   return (
     <section>
-      <h1 className="text-5xl font-poppins font-black my-5">CHECKOUT</h1>
+      <h1 className="text-5xl font-poppins font-black mb-5">CHECKOUT</h1>
       <section className="lg:grid lg:grid-cols-3 gap-6">
         <div className="col-span-1">
           <h3 className="text-2xl font-poppins ">Your cart</h3>

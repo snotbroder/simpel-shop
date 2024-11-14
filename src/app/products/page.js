@@ -12,21 +12,11 @@ function productList() {
 
   return (
     <>
+      <h1 className="text-5xl font-poppins font-black mb-5">productList</h1>
       <Filter fetcher={fetcher} setCategory={setCategory} />
       <div className="flex">
-        <List
-          fetcher={fetcher}
-          category={category}
-          setBasketArray={setBasketArray}
-          basketArray={basketArray}
-        />
-        {basketArray.length > 0 && (
-          <Basket
-            className=" self-start"
-            basketArray={basketArray}
-            setBasketArray={setBasketArray}
-          />
-        )}
+        <List fetcher={fetcher} category={category} setBasketArray={setBasketArray} basketArray={basketArray} />
+        {basketArray.length > 0 && <Basket className=" self-start" basketArray={basketArray} setBasketArray={setBasketArray} />}
       </div>
     </>
   );

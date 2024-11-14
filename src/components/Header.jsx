@@ -2,7 +2,7 @@ import { BsBag } from "react-icons/bs";
 import Link from "next/link";
 function Header() {
   return (
-    <header className="bg-secondary p-4 font-noto text-primary">
+    <header className="bg-secondary p-4 font-noto text-primary mb-5">
       <nav className="flex justify-between items-center">
         <ul className="flex gap-9">
           <li className="relative group">
