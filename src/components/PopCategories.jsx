@@ -10,11 +10,11 @@ function PopCategories() {
   };
 
   return (
-    <div className="pb-40 pt-32 items-center md:items-start md:ml-20 flex flex-col">
-      <h2 className="font-poppins text-2xl font-semibold text-primary">
+    <div className="md:p-24 md:-mx-20  md:pl-20 py-8 -mx-4 md:items-start justify-center flex flex-col bg-purple-200">
+      <h2 className="font-poppins text-2xl text-center font-semibold text-primary">
         Popular categories
       </h2>
-      <div className="flex flex-wrap gap-4 mt-4 justify-center">
+      <div className="flex flex-wrap gap-4 mt-4 justify-center ">
         <CategoryCard
           backgroundImage="/perfume.jpg"
           tagLabel="Fragrances"
