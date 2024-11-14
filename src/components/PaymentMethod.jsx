@@ -71,7 +71,7 @@ function Panel({ title, children, isActive, onShow }) {
       <div className={`px-24 py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-black bg-slate-400" : "bg-slate-300"} `} onClick={onShow}>
         {isActive ? <h3 className="font-semibold font-poppins text-gray">{title}</h3> : <h3 className="font-semibold font-poppins text-black">{title}</h3>}
       </div>
-      {isActive ? <div>{children}</div> : <button onClick={onShow}></button>}
+      {isActive ? <div className="flex span-full">{children}</div> : <button onClick={onShow}></button>}
     </section>
   );
 }
