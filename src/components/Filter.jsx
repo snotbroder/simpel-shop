@@ -17,7 +17,7 @@ export default function Filter({ setCategory, fetcher }) {
 
   return (
     <div
-      className="grid gap-2 grid-cols-2 md:grid-cols-4 justify-between lg:grid-cols-8 mb-12 p-4 bg-secondary cursor-pointer lg:bg-white"
+      className="grid gap-2 grid-cols-2 md:grid-cols-4 justify-between lg:grid-cols-8 mb-12 p-4 bg-white cursor-pointer lg:bg-white border-2 border-black lg:border-0"
       onClick={() => {
         setIsFilterOpen(!isFilterOpen);
       }}
@@ -42,7 +42,7 @@ export default function Filter({ setCategory, fetcher }) {
           isFilterOpen && (
             <button
               onClick={() => setCategory(`/category/${product}`)}
-              className="text-black p-1 border border-black box-border text-sm hover:bg-white lg:hover:bg-secondary"
+              className="text-black p-1 border border-black box-border text-sm hover:bg-secondary lg:hover:bg-secondary"
             >
               {product}
             </button>
