@@ -18,7 +18,7 @@ function PopCategories() {
         <CategoryCard
           backgroundImage="/perfume.jpg"
           tagLabel="Fragrances"
-          onClick={() => handleCategoryClick("fragrances")} // Pass the category
+          onClick={() => handleCategoryClick("fragrances")}
         />
         <CategoryCard
           backgroundImage="/beauty.jpg"
