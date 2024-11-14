@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -13,7 +9,8 @@ module.exports = {
       },
       colors: {
         actionColor: "#DFEBD1",
-        gray: "#C0C7CC",
+        gray: "#879EAF",
+        darkgray: "#5D6D79",
         primary: "#1A2A34",
         accent: "#7189FF",
         secondary: "#D9D9D9",
