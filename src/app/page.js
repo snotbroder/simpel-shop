@@ -18,7 +18,7 @@ export default function Home() {
             Everything you need in once
           </h2>
           <div className=" ">
-            <p className="font-noto text-xl flex gap-5">
+            <p className="font-noto  md:text-xl flex gap-5">
               <FaQuoteRight className="text-primary text-72 " />
               Shoply Goods has everything you need— Discover how easy it is to
               find what you're looking for with our wide selection!
