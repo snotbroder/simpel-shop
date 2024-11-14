@@ -12,7 +12,7 @@ function Card({
   setBasketArray,
 }) {
   return (
-    <div className="group bg-white relative shadow-md flex flex-col gap-4 w-80 rounded-md cursor-pointer pb-4">
+    <div className="group bg-white relative shadow-md flex flex-col gap-4 w-64 lg:w-80 rounded-md cursor-pointer pb-4">
       <Link href={`/single/${productId}`}>
         <div className="flex justify-end p-6">
           <HeartIcon />
@@ -42,18 +42,33 @@ function Card({
           ${price} USD{" "}
         </h2>
         <button
-          className="bg-accent hover:bg-[#92A4FF] rounded-lg text-primary hover:font-medium w-10 h-10 flex items-center justify-center "
+          className="bg-accent hover:bg-[#92A4FF] rounded-lg text-primary hover:font-medium w-10 h-10 flex items-center justify-center"
           onClick={() => {
-            // e.preventDefault();
-            setBasketArray((prevBasketArray) => [
-              ...prevBasketArray,
-              {
-                title: productTitle,
-                id: productId,
-                price: price,
-                thumbnail: thumbnail,
-              },
-            ]);
+            setBasketArray((prevBasketArray) => {
+              const existingProductIndex = prevBasketArray.findIndex(
+                (item) => item.id === productId
+              );
+
+              if (existingProductIndex !== -1) {
+                const updatedBasket = [...prevBasketArray];
+                updatedBasket[existingProductIndex] = {
+                  ...updatedBasket[existingProductIndex],
+                  quantity: updatedBasket[existingProductIndex].quantity + 1,
+                };
+                return updatedBasket;
+              } else {
+                return [
+                  ...prevBasketArray,
+                  {
+                    title: productTitle,
+                    id: productId,
+                    price: price,
+                    thumbnail: thumbnail,
+                    quantity: 1,
+                  },
+                ];
+              }
+            });
           }}
         >
           <BsBagPlus className="text-xl" />

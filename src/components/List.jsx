@@ -18,7 +18,7 @@ export default function List({
   if (error) return "error";
 
   return (
-    <div className="flex flex-col sm:flex-row">
+    <div className="flex flex-col sm:flex-row gap-4">
       {basketArray.length > 0 && (
         <Basket
           className=" self-start"

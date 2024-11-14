@@ -6,8 +6,11 @@ import { FaFilter } from "react-icons/fa";
 import useSWR from "swr";
 
 export default function Filter({ setCategory, fetcher }) {
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const { data, error, isLoading } = useSWR("https://dummyjson.com/products/category-list", fetcher);
+  const [isFilterOpen, setIsFilterOpen] = useState(true);
+  const { data, error, isLoading } = useSWR(
+    "https://dummyjson.com/products/category-list",
+    fetcher
+  );
 
   if (isLoading) return <div>Loading categories...</div>;
   if (error) return <div>Error loading categories</div>;
@@ -37,7 +40,10 @@ export default function Filter({ setCategory, fetcher }) {
       {data.map(
         (product) =>
           isFilterOpen && (
-            <button onClick={() => setCategory(`/category/${product}`)} className="text-black p-1 border border-black box-border text-sm hover:bg-secondary lg:hover:bg-secondary">
+            <button
+              onClick={() => setCategory(`/category/${product}`)}
+              className="text-black p-1 border border-black box-border text-sm hover:bg-secondary lg:hover:bg-secondary"
+            >
               {product}
             </button>
           )
