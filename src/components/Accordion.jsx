@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Accordion({ reviews, rating, dimensions, returnInfo, shippingInfo, sku }) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className=" flex flex-col gap-4">
+    <section className=" flex flex-col gap-4 bg-gray rounded-md text-bg p-10">
       <Panel
         title={
           <>
@@ -27,7 +27,7 @@ export default function Accordion({ reviews, rating, dimensions, returnInfo, shi
                 <span className="font-regular mb-1">
                   {review.reviewerName} ⏐ {review.rating} / 5
                 </span>{" "}
-                <p className="text-gray italic">"{review.comment}"</p>
+                <p className="text-secondary italic">"{review.comment}"</p>
               </div>
             </div>
           ))
@@ -76,13 +76,13 @@ export default function Accordion({ reviews, rating, dimensions, returnInfo, shi
 
 function Panel({ title, children, isActive, onShow }) {
   return (
-    <section onClick={onShow} className="panel p-5 transition-opacity">
-      <h3 className="font-semibold font-poppins">{title}</h3>
-      <hr />
+    <section onClick={onShow} className="panel p-2 transition-opacity">
+      <h3 className="font-semibold font-poppins my-2">{title}</h3>
+      <hr className="my-2" />
       {isActive ? (
         <p className="font-noto">{children}</p>
       ) : (
-        <button className="text-gray" onClick={onShow}>
+        <button className="text-secondary" onClick={onShow}>
           Read more
         </button>
       )}

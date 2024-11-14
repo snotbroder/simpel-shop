@@ -1,15 +1,13 @@
+import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 function MainButton({ buttonText }) {
   return (
     <>
-      <button className="bg-accent text-primary w-auto rounded-lg pl-6 pr-4 pb-1 pt-1 text-center hover:font-medium group hover:bg-actionColor">
+      <Link href={`/products`} className="bg-accent text-primary transition-all  text-xl  w-auto rounded-lg px-10 py-3 text-center hover:font-medium group hover:bg-primary hover:text-bg hover:transition-all">
         {buttonText}
-        <IoIosArrowRoundForward
-          className="inline transition-transform duration-200 ease-in-out group-hover:translate-x-1"
-          size={30}
-        />
-      </button>
+        <IoIosArrowRoundForward className="inline transition-transform duration-200 ease-in-out group-hover:translate-x-1" size={30} />
+      </Link>
     </>
   );
 }

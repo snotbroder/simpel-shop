@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
+import MainButton from "./MainButton";
 
 export default function PaymentMethod({}) {
   const [activeIndex, setActiveIndex] = useState(0);
+  let total = 20;
   return (
     <section className="">
-      <h3 className="font-poppins text-sm mb-3">Please choose payment method</h3>
+      <h3 className="font-poppins text-sm mb-3 text-primary">Please choose payment method</h3>
       <div className="flex gap-4 justify-between lg:flex-nowrap mb-5">
         <Panel title="Card" isActive={activeIndex === 0} onShow={() => setActiveIndex(0)}>
-          <form className="">
+          <form className="py-7">
             <div className="flex flex-wrap justify-between gap-3 mb-5">
               <label className="flex flex-col font-poppins" id="card-number">
                 <strong>Card number</strong>
@@ -44,7 +46,7 @@ export default function PaymentMethod({}) {
           </form>
         </Panel>
         <Panel title="Mobilepay" isActive={activeIndex === 1} onShow={() => setActiveIndex(1)}>
-          <form>
+          <form className="py-7">
             <label className="flex flex-col font-poppins" id="phone-number">
               <strong>Phone number</strong>
               <input className="w-full rounded-sm px-2" name="phone-number" type="number"></input>
@@ -60,16 +62,19 @@ export default function PaymentMethod({}) {
         <input className="mr-2" name="remember" type="checkbox"></input>
         <p>I accept the terms and conditions</p>
       </label>
-      <span className="grid font-bold place-self-end hover:text-red-500 bg-white p-3 rounded-md">Pay NUMBER</span>
+
+      <span className="grid place-self-end">
+        <MainButton buttonText={`Purchase $${total} USD`}></MainButton>
+      </span>
     </section>
   );
 }
 
 function Panel({ title, children, isActive, onShow }) {
   return (
-    <section className="w-1/2">
-      <div className={`px-24 py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-black bg-slate-400" : "bg-slate-300"} `} onClick={onShow}>
-        {isActive ? <h3 className="font-semibold font-poppins text-gray">{title}</h3> : <h3 className="font-semibold font-poppins text-black">{title}</h3>}
+    <section className="w-1/2 ">
+      <div className={`px-24 py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-bg bg-darkgray" : "bg-secondary"} `} onClick={onShow}>
+        {isActive ? <h3 className="font-semibold font-poppins text-bg">{title}</h3> : <h3 className="font-semibold font-poppins text-primary">{title}</h3>}
       </div>
       {isActive ? <div className="flex span-full">{children}</div> : <button onClick={onShow}></button>}
     </section>
