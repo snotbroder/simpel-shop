@@ -1,25 +1,37 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation"; // Import useSearchParams
 import Filter from "@/components/Filter";
 import List from "@/components/List";
-import Basket from "@/components/basket";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function productList() {
-  const [category, setCategory] = useState("");
-  const [basketArray, setBasketArray] = useState([]);
+function ProductList() {
+  const searchParams = useSearchParams();
+
+  // Get the category directly from the search params
+  const categoryUrl = searchParams.get("category") || ""; // Default to empty string if not available
+
+  // Initialize state with categoryUrl or empty string
+  const [categoryState, setCategoryState] = useState(
+    `/category/${categoryUrl}`
+  );
+
+  // useEffect to update state if searchParams changes
+  useEffect(() => {
+    // Whenever the category query changes, update state
+    if (categoryUrl) {
+      setCategoryState(`/category/${categoryUrl}`);
+    }
+  }, [categoryUrl]);
 
   return (
     <>
-      <h1 className="text-5xl font-poppins font-black mb-5">productList</h1>
-      <Filter fetcher={fetcher} setCategory={setCategory} />
-      <div className="flex">
-        <List fetcher={fetcher} category={category} setBasketArray={setBasketArray} basketArray={basketArray} />
-        {basketArray.length > 0 && <Basket className=" self-start" basketArray={basketArray} setBasketArray={setBasketArray} />}
-      </div>
+      {/* Pass categoryState to Filter and List components */}
+      <Filter fetcher={fetcher} setCategory={setCategoryState} />
+      <List fetcher={fetcher} category={categoryState} />
     </>
   );
 }
 
-export default productList;
+export default ProductList;
