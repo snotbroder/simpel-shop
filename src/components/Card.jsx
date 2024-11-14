@@ -1,7 +1,8 @@
+import Link from "next/link";
 import HeartIcon from "./HeartIcon";
 import Image from "next/image";
 
-function Card({ productTitle, thumbnail, price }) {
+function Card({ productTitle, thumbnail, price, productId }) {
   return (
     <div className=" bg-slate-100 relative shadow-md flex flex-col gap-4 w-64 rounded-md cursor-pointer pb-4 hover:scale-105 transition-transform duration-300 ease-in-out">
       <HeartIcon />
