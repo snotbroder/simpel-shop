@@ -41,14 +41,14 @@ async function singleProduct({ params }) {
           </div>
 
           <div className="flex justify-end place-items-center mb-3">
-            <Link className="mr-3 underline transition-all hover:text-accent hover:transition-all" href={`/checkout`}>
+            <Link className="mr-3 underline text-primary transition-all hover:text-accent hover:transition-all" href={`/checkout`}>
               Go to checkout
             </Link>
             <MainButton buttonText="Add to bag"></MainButton>
           </div>
         </article>
         <article>
-          <Accordion reviews={data.reviews} rating={data.rating} dimensions={data.dimensions} returnInfo={data.warrantyInformation} shippingInfo={data.shippingInformation} sku={data.sku}></Accordion>
+          <Accordion reviews={data.reviews} rating={data.rating} dimensions={data.dimensions} returnInfo={data.warrantyInformation} shippingInfo={data.shippingInformation} sku={data.sku} tags={data.tags}></Accordion>
         </article>
       </section>
     </section>
