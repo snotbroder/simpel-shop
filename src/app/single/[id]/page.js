@@ -1,6 +1,7 @@
 import Accordion from "@/components/Accordion";
 import MainButton from "@/components/MainButton";
 import Image from "next/image";
+import Link from "next/link";
 import useSWR from "swr";
 
 async function singleProduct({ params }) {
@@ -38,9 +39,13 @@ async function singleProduct({ params }) {
               <h6 className={data.availabilityStatus === "In Stock" ? "text-green-500" : data.availabilityStatus === "Low Stock" ? "text-orange-500" : data.availabilityStatus === "Out of Stock" ? "text-red-500" : "text-black"}>{data.availabilityStatus}</h6>
             </div>{" "}
           </div>
-          <span className="grid place-self-end">
+
+          <div className="flex justify-end place-items-center mb-3">
+            <Link className="mr-3 underline transition-all hover:text-accent hover:transition-all" href={`/checkout`}>
+              Go to checkout
+            </Link>
             <MainButton buttonText="Add to bag"></MainButton>
-          </span>
+          </div>
         </article>
         <article>
           <Accordion reviews={data.reviews} rating={data.rating} dimensions={data.dimensions} returnInfo={data.warrantyInformation} shippingInfo={data.shippingInformation} sku={data.sku}></Accordion>
