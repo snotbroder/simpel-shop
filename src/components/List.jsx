@@ -16,6 +16,7 @@ export default function List({ category, fetcher, setBasketArray }) {
         <div key={product.id}>
           <Card
             productTitle={product.title}
+            brand={product.brand}
             price={product.price}
             thumbnail={product.thumbnail}
             productId={product.id}
