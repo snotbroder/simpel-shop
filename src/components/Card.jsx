@@ -14,7 +14,6 @@ function Card({
   return (
     <div className="group bg-white relative shadow-md flex flex-col gap-4 w-80 rounded-md cursor-pointer pb-4">
       <Link href={`/single/${productId}`}>
-        {/* hover:scale-105 transition-transform duration-300 ease-in-out */}
         <div className="flex justify-end p-6">
           <HeartIcon />
         </div>

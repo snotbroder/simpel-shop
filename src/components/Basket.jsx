@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 function Basket({ basketArray, setBasketArray }) {
   console.log("Basket Array:", basketArray);
   return (
-    <div className="basket-container bg-gray-100 text-black w-64 p-4 rounded-lg shadow-lg">
+    <div className="basket-container bg-gray-100 text-black p-4 rounded-lg shadow-lg w-full sm:w-80 mb-4">
       <h1 className="text-xl font-bold mb-4">Basket</h1>
       {basketArray.map((product, i) => (
         <div
@@ -24,7 +24,7 @@ function Basket({ basketArray, setBasketArray }) {
               <p className="text-xs text-gray-500 mt-1">- 2 +</p>
             </div>
             <div className="text-right">
-              <p className="text-sm font-medium">{product.price} KR</p>
+              <p className="text-sm font-medium">{product.price} USD</p>
             </div>
             <button
               onClick={() => {
