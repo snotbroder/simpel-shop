@@ -5,7 +5,6 @@ import { BsBagPlus } from "react-icons/bs";
 
 function Card({
   brand,
-  rating,
   productTitle,
   thumbnail,
   price,
