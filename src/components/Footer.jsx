@@ -29,7 +29,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div class=" text-secondary">@Shoply Goods</div>
+      <div class=" text-primary">@Shoply Goods</div>
     </footer>
   );
 }
