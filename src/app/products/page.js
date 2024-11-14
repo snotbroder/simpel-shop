@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import useSWR from "swr";
 import Filter from "@/components/Filter";
 import List from "@/components/List";
 
@@ -10,9 +11,18 @@ function ProductList() {
   const searchParams = useSearchParams();
 
   const categoryUrl = searchParams.get("category") || "";
+
   const [categoryState, setCategoryState] = useState(
-    `/category/${categoryUrl}`
+    categoryUrl ? `/category/${categoryUrl}` : ""
   );
+
+  // useEffect(() => {
+  //   if (categoryUrl) {
+  //     setCategoryState(`/category/${categoryUrl}`);
+  //   } else {
+  //     setCategoryState("");
+  //   }
+  // }, [categoryUrl]);
 
   return (
     <>
