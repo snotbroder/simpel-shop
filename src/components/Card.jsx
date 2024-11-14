@@ -11,6 +11,7 @@ function Card({ brand, productTitle, thumbnail, price, productId, setBasketArray
         <div className="flex justify-end p-6">
           <HeartIcon />
         </div>
+
         <div className=" overflow-hidden flex justify-center">
           <Image className=" object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110" src={thumbnail} width={200} height={200} alt="test" />
         </div>
