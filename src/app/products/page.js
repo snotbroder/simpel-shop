@@ -13,11 +13,14 @@ function ProductList() {
 
   const categoryUrl = searchParams.get("category") || "";
 
-  const [category, setCategory] = useState(
-    categoryUrl ? `/category/${categoryUrl}` : ""
-  );
+  const [category, setCategory] = useState(categoryUrl ? `/category/${categoryUrl}` : "");
   const [basketArray, setBasketArray] = useState([]);
-  // const [categoryState, setCategoryState] =
+  // const [categoryState, setCategoryState] = useState("");
+
+  useEffect(() => {
+    // Update category whenever categoryUrl changes
+    setCategory(categoryUrl ? `/category/${categoryUrl}` : "");
+  }, [categoryUrl]);
 
   // useEffect(() => {
   //   if (categoryUrl) {
@@ -31,12 +34,7 @@ function ProductList() {
     <>
       <div>
         <Filter fetcher={fetcher} setCategory={setCategory} />
-        <List
-          fetcher={fetcher}
-          category={category}
-          setBasketArray={setBasketArray}
-          basketArray={basketArray}
-        />
+        <List fetcher={fetcher} category={category} setBasketArray={setBasketArray} basketArray={basketArray} />
       </div>
     </>
   );
