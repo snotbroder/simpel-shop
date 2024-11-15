@@ -1,3 +1,4 @@
+"use client";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
@@ -10,18 +11,9 @@ function Basket({ basketArray, setBasketArray }) {
     <div className="basket-container bg-gray-100 text-black p-4 rounded-lg shadow-lg w-full md:w-80 mb-4">
       <h1 className="text-xl font-bold mb-4">Basket</h1>
       {basketArray.map((product, i) => (
-        <div
-          key={`basket${i}`}
-          className="basket-item border-b border-gray-300 pb-4 mb-4"
-        >
+        <div key={`basket${i}`} className="basket-item border-b border-gray-300 pb-4 mb-4">
           <div className="flex gap-4 items-center">
-            <Image
-              src={product.thumbnail}
-              width={60}
-              height={60}
-              alt={product.title}
-              className="rounded-md"
-            />
+            <Image src={product.thumbnail} width={60} height={60} alt={product.title} className="rounded-md" />
             <div className="flex flex-1 flex-col">
               <h1 className="font-medium text-sm">{product.title}</h1>
               <div className="flex items-center gap-2">
@@ -33,9 +25,7 @@ function Basket({ basketArray, setBasketArray }) {
             </div>
             <button
               onClick={() => {
-                setBasketArray((prevBasketArray) =>
-                  prevBasketArray.filter((item) => item.id !== product.id)
-                );
+                setBasketArray((prevBasketArray) => prevBasketArray.filter((item) => item.id !== product.id));
               }}
               style={{ background: "none", border: "none", cursor: "pointer" }} // Optional styling to make it look like an icon button
             >
