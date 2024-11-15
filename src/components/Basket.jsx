@@ -4,6 +4,8 @@ import { FaMinus } from "react-icons/fa6";
 
 import Image from "next/image";
 import { FaTrashAlt } from "react-icons/fa";
+import MainButton from "./MainButton";
+import Link from "next/link";
 
 function Basket({ basketArray, setBasketArray }) {
   console.log("Basket Array:", basketArray);
@@ -34,6 +36,7 @@ function Basket({ basketArray, setBasketArray }) {
           </div>
         </div>
       ))}
+      <Link href={`/checkout?basket=${encodeURIComponent(JSON.stringify(basketArray))}`}>Checkout</Link>
     </div>
   );
 }

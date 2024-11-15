@@ -3,9 +3,9 @@ import { useState } from "react";
 import MainButton from "./MainButton";
 import Link from "next/link";
 
-export default function PaymentMethod({}) {
+export default function PaymentMethod({ total }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  let total = 20;
+
   return (
     <section>
       <h3 className="font-poppins text-xs mb-3 text-primary">Please choose method of payment</h3>
