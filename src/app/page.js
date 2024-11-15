@@ -15,7 +15,7 @@ export default function Home() {
       <div className="text-primary flex flex-col md:flex-row justify-center gap-20 items-center py-4">
         <div className="md:max-w-xl">
           <h2 className="font-poppins font-bold text-2xl md:text-4xl my-3  ">
-            Everything you need in once
+            Everything you need at once
           </h2>
           <div className=" ">
             <p className="font-noto  md:text-xl flex gap-5">

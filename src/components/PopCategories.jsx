@@ -10,7 +10,7 @@ function PopCategories() {
   };
 
   return (
-    <div className="lg:p-24 lg:-mx-20 md:pl-20 py-8 -mx-4 md:items-start justify-center flex flex-col bg-purple-200">
+    <div className="lg:p-24 lg:-mx-20 md:pl-20 py-8 -mx-4 md:items-start justify-center flex flex-col bg-accent2">
       <h2 className="font-poppins text-2xl text-center font-semibold text-primary">
         Popular categories
       </h2>
