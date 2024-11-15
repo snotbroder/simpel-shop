@@ -3,6 +3,7 @@ import MainButton from "@/components/MainButton";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+import { RxDoubleArrowRight } from "react-icons/rx";
 
 async function singleProduct({ params }) {
   const id = (await params).id;
@@ -11,8 +12,22 @@ async function singleProduct({ params }) {
 
   return (
     <section>
-      <div className="text-primary">
-        <button>Back</button> ⏐ breadcumb / breadcrumb / breadcrumb
+      <div className="text-primary flex gap-2 items-center mb-3">
+        <Link href="/products" className="hover:text-accent transition">
+          Back
+        </Link>{" "}
+        ⏐{" "}
+        <Link className="capitalize text-gray hover:text-primary transition" href="/products">
+          Products
+        </Link>{" "}
+        <RxDoubleArrowRight />{" "}
+        <Link className="capitalize text-gray hover:text-primary transition" href={`/products?category=${data.category}`}>
+          {data.category}
+        </Link>{" "}
+        <RxDoubleArrowRight />{" "}
+        <Link className="capitalize text-primary" href="#">
+          {data.title}
+        </Link>
       </div>
       <section className="grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-7">
         <article className="mx-auto sm:mb-3">
@@ -29,12 +44,12 @@ async function singleProduct({ params }) {
               <h4 className="font-poppins capitalize text-xl  text-primary mb-2">
                 <span className="text-gray">{data.category}</span> ⏐ {data.brand}
               </h4>
-              <h1 className="font-poppins text-5xl font-black text-primary">{data.title}</h1>
+              <h1 className="font-poppins text-3xl lg:text-5xl md:text-5xl font-black text-primary">{data.title}</h1>
             </div>
             <p className="font-noto">{data.description}</p>
           </div>
           <div className="flex justify-between my-5 ">
-            <span className="font-noto text-3xl font-black text-primary">${data.price} USD</span>
+            <span className="font-noto text-xl md:text-3xl lg:text-3xl font-black text-primary">${data.price} USD</span>
             <div className="bg-secondary rounded-sm px-2 py-1 font-noto">
               <h6 className={data.availabilityStatus === "In Stock" ? "text-green-500" : data.availabilityStatus === "Low Stock" ? "text-orange-500" : data.availabilityStatus === "Out of Stock" ? "text-red-500" : "text-black"}>{data.availabilityStatus}</h6>
             </div>{" "}

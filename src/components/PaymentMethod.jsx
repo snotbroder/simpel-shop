@@ -9,10 +9,10 @@ export default function PaymentMethod({ total }) {
   return (
     <section>
       <h3 className="font-poppins text-xs mb-3 text-primary">Please choose method of payment</h3>
-      <div className="flex gap-4 justify-between lg:flex-nowrap mb-5">
+      <div className="flex gap-4 justify-between flex-wrap lg:flex-nowrap mb-5">
         <Panel title="Credit card" isActive={activeIndex === 0} onShow={() => setActiveIndex(0)}>
           <form className="py-7">
-            <div className="flex flex-wrap justify-between gap-3 mb-5">
+            <div className="flex flex-wrap gap-3 mb-5">
               <label className="flex flex-col font-poppins text-primary" id="cardnumber">
                 Card number
                 <input className="w-full rounded-sm px-2 bg-bg font-noto" name="cardnumber" type="text"></input>
@@ -66,7 +66,7 @@ export default function PaymentMethod({ total }) {
               Phone number
               <input className="w-full rounded-sm px-2 bg-bg font-noto" name="phonenumber" type="text"></input>
             </label>
-            <label className="flex font-poppins" id="remember">
+            <label className="flex font-poppins pt-4" id="remember">
               <input className="mr-2" name="remember" type="checkbox"></input>
               <p>Remember my phone number</p>
             </label>
@@ -83,7 +83,7 @@ export default function PaymentMethod({ total }) {
         </p>
       </label>
 
-      <span className="grid place-self-end">
+      <span className="grid place-self-end pt-10">
         <MainButton buttonText={`Purchase $${total} USD`}></MainButton>
       </span>
     </section>
@@ -92,8 +92,8 @@ export default function PaymentMethod({ total }) {
 
 function Panel({ title, children, isActive, onShow }) {
   return (
-    <section className="w-1/2 ">
-      <div className={`px-24 py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-bg bg-darkgray" : "bg-secondary"} `} onClick={onShow}>
+    <section className="w-full ">
+      <div className={` py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-bg bg-darkgray" : "bg-secondary"} `} onClick={onShow}>
         {isActive ? <h3 className="font-semibold font-poppins text-bg">{title}</h3> : <h3 className="font-semibold font-poppins text-primary">{title}</h3>}
       </div>
       {isActive ? <div className="flex span-full">{children}</div> : <button onClick={onShow}></button>}

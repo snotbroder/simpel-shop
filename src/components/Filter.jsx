@@ -6,7 +6,7 @@ import { FaFilter } from "react-icons/fa";
 import useSWR from "swr";
 
 export default function Filter({ setCategory, fetcher }) {
-  const [isFilterOpen, setIsFilterOpen] = useState(true);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const { data, error, isLoading } = useSWR("https://dummyjson.com/products/category-list", fetcher);
 
   if (isLoading) return <div>Loading categories...</div>;
@@ -19,7 +19,7 @@ export default function Filter({ setCategory, fetcher }) {
         setIsFilterOpen(!isFilterOpen);
       }}
     >
-      <div className="flex justify-between md:col-span-4 lg-span-8 col-span-2 mb-2 lg:hidden ">
+      <div className="flex justify-between md:col-span-8 lg-span-8 col-span-2 mb-2  ">
         <div className="flex gap-4 items-center">
           <h1>Filter</h1>
           <FaFilter />
