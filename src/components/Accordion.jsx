@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
+import Tag from "./Tag";
 
-export default function Accordion({ reviews, rating, dimensions, returnInfo, shippingInfo, sku }) {
+export default function Accordion({ reviews, rating, dimensions, returnInfo, shippingInfo, sku, tags }) {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section className=" flex flex-col gap-4 bg-gray rounded-md text-bg p-10">
@@ -17,9 +18,6 @@ export default function Accordion({ reviews, rating, dimensions, returnInfo, shi
         isActive={activeIndex === 0}
         onShow={() => setActiveIndex(0)}
       >
-        {/* <span className="text-gray">
-          Product rating: {rating} / 5 ({reviews.length})
-        </span> */}
         {reviews && reviews.length && rating > 0 ? (
           reviews.map((review, index) => (
             <div key={index} className="font-noto mb-2">
@@ -67,8 +65,9 @@ export default function Accordion({ reviews, rating, dimensions, returnInfo, shi
         )}
       </Panel>
       <Panel title="Other" isActive={activeIndex === 3} onShow={() => setActiveIndex(3)}>
+        <p className="mb-1">Other tags:</p>
+        <div className="flex gap-1 mb-3">{tags && tags.length > 0 ? tags.map((tag, index) => <Tag tagLabel={tag} key={index}></Tag>) : <p>No tags available</p>}</div>
         <p>Sku number: {sku}</p>
-        <p>Other tags</p>
       </Panel>
     </section>
   );
