@@ -7,17 +7,14 @@ import useSWR from "swr";
 
 export default function Filter({ setCategory, fetcher }) {
   const [isFilterOpen, setIsFilterOpen] = useState(true);
-  const { data, error, isLoading } = useSWR(
-    "https://dummyjson.com/products/category-list",
-    fetcher
-  );
+  const { data, error, isLoading } = useSWR("https://dummyjson.com/products/category-list", fetcher);
 
   if (isLoading) return <div>Loading categories...</div>;
   if (error) return <div>Error loading categories</div>;
 
   return (
     <div
-      className="grid gap-2 grid-cols-2 md:grid-cols-4 justify-between lg:grid-cols-8 mb-12 -mx-4 p-4 bg-white cursor-pointer lg:bg-white border-2 border-black lg:border-0"
+      className="grid gap-2 grid-cols-2 md:grid-cols-4 justify-between lg:grid-cols-8 mb-12 -mx-4 p-4 bg-white cursor-pointer lg:bg-white border-2 border-secondary lg:border-0 shadow-md rounded-md"
       onClick={() => {
         setIsFilterOpen(!isFilterOpen);
       }}
@@ -40,10 +37,7 @@ export default function Filter({ setCategory, fetcher }) {
       {data.map(
         (product) =>
           isFilterOpen && (
-            <button
-              onClick={() => setCategory(`/category/${product}`)}
-              className="text-black p-1 border border-black box-border text-sm hover:bg-secondary lg:hover:bg-secondary"
-            >
+            <button onClick={() => setCategory(`/category/${product}`)} className="text-primary p-1 border border-gray box-border text-sm hover:bg-accent transition rounded-md capitalize ">
               {product}
             </button>
           )
