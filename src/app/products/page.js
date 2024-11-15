@@ -27,7 +27,7 @@ function ProductList() {
   // }, [categoryUrl]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense>
       <div>
         <Filter fetcher={fetcher} setCategory={setCategory} />
         <List fetcher={fetcher} category={category} setBasketArray={setBasketArray} basketArray={basketArray} />
