@@ -17,11 +17,6 @@ function ProductList() {
   const [basketArray, setBasketArray] = useState([]);
   // const [categoryState, setCategoryState] = useState("");
 
-  useEffect(() => {
-    // Update category whenever categoryUrl changes
-    setCategory(categoryUrl ? `/category/${categoryUrl}` : "");
-  }, [categoryUrl]);
-
   // useEffect(() => {
   //   if (categoryUrl) {
   //     setCategoryState(`/category/${categoryUrl}`);
