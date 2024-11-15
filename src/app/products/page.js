@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import Filter from "@/components/Filter";
 import List from "@/components/List";
+import Basket from "@/components/Basket";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -12,9 +13,11 @@ function ProductList() {
 
   const categoryUrl = searchParams.get("category") || "";
 
-  const [categoryState, setCategoryState] = useState(
+  const [category, setCategory] = useState(
     categoryUrl ? `/category/${categoryUrl}` : ""
   );
+  const [basketArray, setBasketArray] = useState([]);
+  // const [categoryState, setCategoryState] =
 
   // useEffect(() => {
   //   if (categoryUrl) {
@@ -26,8 +29,15 @@ function ProductList() {
 
   return (
     <>
-      <Filter fetcher={fetcher} setCategory={setCategoryState} />
-      <List fetcher={fetcher} category={categoryState} />
+      <div>
+        <Filter fetcher={fetcher} setCategory={setCategory} />
+        <List
+          fetcher={fetcher}
+          category={category}
+          setBasketArray={setBasketArray}
+          basketArray={basketArray}
+        />
+      </div>
     </>
   );
 }
