@@ -82,9 +82,8 @@ export default function PaymentMethod({ total }) {
           </Link>
         </p>
       </label>
-
       <span className="grid place-self-end pt-10">
-        <MainButton buttonText={`Purchase $${total} USD`}></MainButton>
+        <MainButton linkDest="/" buttonText={`Purchase $${total} USD`} />
       </span>
     </section>
   );
@@ -93,7 +92,7 @@ export default function PaymentMethod({ total }) {
 function Panel({ title, children, isActive, onShow }) {
   return (
     <section className="w-full ">
-      <div className={` py-5 rounded-md grid place-items-center  ${isActive ? "border-2 border-bg bg-darkgray" : "bg-secondary"} `} onClick={onShow}>
+      <div className={`py-5 rounded-md grid place-items-center ${isActive ? "border-2 border-bg bg-darkgray" : "bg-secondary"}`} onClick={onShow}>
         {isActive ? <h3 className="font-semibold font-poppins text-bg">{title}</h3> : <h3 className="font-semibold font-poppins text-primary">{title}</h3>}
       </div>
       {isActive ? <div className="flex span-full">{children}</div> : <button onClick={onShow}></button>}

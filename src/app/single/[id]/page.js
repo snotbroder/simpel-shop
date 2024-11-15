@@ -59,7 +59,7 @@ async function singleProduct({ params }) {
             <Link className="mr-3 underline text-primary transition-all hover:text-accent hover:transition-all" href={`/checkout`}>
               Go to checkout
             </Link>
-            <MainButton buttonText="Add to bag"></MainButton>
+            <MainButton linkDest="" buttonText="Add to bag"></MainButton>
           </div>
         </article>
         <article>
